@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "ts-node"
+    "start": "ts-node src/app.ts"
   },
   "dependencies": {
     "express": "^4.17.1"

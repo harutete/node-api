@@ -1,4 +1,6 @@
 import express from 'express'
+import cors from 'cors'
+
 import { graphqlHTTP } from 'express-graphql'
 import { buildSchema } from 'graphql'
 import { GROUP_LIST } from '../../data/group'
@@ -18,6 +20,7 @@ const rootValue = {
 }
 
 const app = express()
+app.use(cors())
 app.use('/graphql', graphqlHTTP({
   schema,
   rootValue,
@@ -25,4 +28,4 @@ app.use('/graphql', graphqlHTTP({
 }))
 app.listen(port)
 
-console.log(`App listening at http://localhost:${port}`)
+console.log(`App listening at http://localhost:${port}/graphql`)

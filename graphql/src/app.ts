@@ -4,13 +4,14 @@ import cors from 'cors'
 import { graphqlHTTP } from 'express-graphql'
 import { schema } from './schema'
 import { MEMBERS } from '../../data/members'
-import { LINK_SKILLS } from '../../data/linkSkills'
+import { SelectedMemberAndSkill } from './types'
+import { findCurrentLinkSkills } from './resolver'
 
 const port = 4000
 
 const rootValue = {
   members: () => MEMBERS,
-  linkSkills: () => LINK_SKILLS
+  linkSkills: (obj: SelectedMemberAndSkill) => findCurrentLinkSkills(obj)
 }
 
 const app = express()

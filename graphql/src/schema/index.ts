@@ -15,6 +15,6 @@ export const schema = buildSchema(`
   }
   type Query {
     members: [Member]
-    linkSkills(member: String, skill: String): [LinkSkill]
+    linkSkills(memberId: Int, skill: String): [LinkSkill]
   }
 `)
